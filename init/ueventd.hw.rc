@@ -1,0 +1,11 @@
+subsystem usbmisc
+    devname uevent_devname
+
+/dev/mali0                                      0666    system       graphics
+/dev/dri/card0                                  0666    system       graphics
+/dev/graphics/fb0                               0666    system       graphics
+/dev/video0                                     0666    system       graphics
+/dev/video1                                     0666    system       media
+/dev/video2                                     0666    system       media
+/dev/tee0                                       0660    system       keystore
+/dev/ttyS2                                      0660    system       system

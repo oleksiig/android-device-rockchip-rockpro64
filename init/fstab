@@ -1,0 +1,9 @@
+# Android fstab file for eMMC
+
+/dev/block/platform/fe330000.sdhci/by-name/misc             /misc           emmc    defaults                              defaults
+/dev/block/platform/fe330000.sdhci/by-name/metadata         /metadata       ext4    noatime,nosuid,nodev,discard          wait,check,formattable
+/dev/block/platform/fe330000.sdhci/by-name/userdata         /data           ext4    nodev,noatime,nosuid,errors=panic     wait,check,formattable,latemount,quota,reservedsize=128M,keydirectory=/metadata/vold/metadata_encryption
+
+/devices/platform/fe320000.dwmmc/mmc_host/mmc*              auto            auto    defaults                              voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/fe380000.usb/usb*                         auto            auto    defaults                              voldmanaged=usbdisk:auto,encryptable=userdata
+/devices/platform/fe3c0000.usb/usb*                         auto            auto    defaults                              voldmanaged=usbdisk:auto,encryptable=userdata

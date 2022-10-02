@@ -1,0 +1,19 @@
+
+import init.common.rc
+import init.${ro.hardware}.usb.rc
+
+on post-fs
+# Set Display density
+    setprop ro.sf.lcd_density 160
+
+# Set supported opengles version
+    setprop ro.opengles.version 196608
+
+# If an app forces screen rotation, revert it once the apps closes
+    setprop persist.demo.rotationlock 1
+
+# enable Google-specific location features, like NetworkLocationProvider and LocationCollector
+    setprop ro.com.google.locationfeatures 1
+
+# Set preferred framebuffer resolution
+    setprop persist.vendor.framebuffer.main 1024x600@60

@@ -1,0 +1,11 @@
+service vendor.light-hal /vendor/bin/hw/android.hardware.light@2.0-service.rockpro64
+    interface android.hardware.light@2.0::ILight default
+    class hal
+    user system
+    group system
+    # shutting off lights while powering-off
+    shutdown critical
+
+on early-boot
+    chown system system /sys/class/backlight/lvds-backlight/brightness
+    chown system system /sys/class/backlight/lvds-backlight/max_brightness

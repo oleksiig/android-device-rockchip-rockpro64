@@ -1,0 +1,11 @@
+
+# Default common HALs
+/vendor/bin/hw/android.hardware.gatekeeper@1.0-service.rockchip         u:object_r:hal_gatekeeper_default_exec:s0
+/vendor/bin/hw/android.hardware.memtrack@1.0-service.rockchip           u:object_r:hal_memtrack_default_exec:s0
+/vendor/bin/hw/android.hardware.health@2.0-service.rockchip             u:object_r:hal_health_default_exec:s0
+/vendor/bin/hw/android.hardware.power@1.0-service.rockchip              u:object_r:hal_power_default_exec:s0
+/vendor/bin/hw/android.hardware.audio@4.0-service.rockchip              u:object_r:hal_audio_default_exec:s0
+/vendor/bin/hw/android.hardware.audio.effect@4.0-service.rockchip       u:object_r:hal_audio_default_exec:s0
+
+# Rockpro64 board specific HALs
+/vendor/bin/hw/android.hardware.light@2.0-service.rockpro64             u:object_r:hal_light_default_exec:s0
