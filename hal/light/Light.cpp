@@ -31,8 +31,8 @@ using namespace android::hardware;
 Light::Light(void)
 {
     mMaxValue = 255;
-    mBrightnessPath = "/sys/class/backlight/lvds-backlight/brightness";
-    mMaxBrightnessPath = "/sys/class/backlight/lvds-backlight/max_brightness";
+    mBrightnessPath = "/sys/class/backlight/backlight/brightness";
+    mMaxBrightnessPath = "/sys/class/backlight/backlight/max_brightness";
 
     char buffer[8] = {0};
     mFd = open(mMaxBrightnessPath.c_str(), O_RDONLY);

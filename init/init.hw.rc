@@ -17,3 +17,6 @@ on post-fs
 
 # Set preferred framebuffer resolution
     setprop persist.vendor.framebuffer.main 1024x600@60
+
+# Set to GL thtreaded render engine
+    setprop debug.renderengine.backend gles

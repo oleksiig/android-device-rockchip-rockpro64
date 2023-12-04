@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2022 The Android Open-Source Project
+# Copyright (C) 2023 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +16,8 @@
 
 $(call inherit-product, device/rockchip/common/device-common.mk)
 
-PRODUCT_PACKAGES += \
+# Adjust the dalvik heap to be appropriate for a tablet.
+$(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
 
 # Default HALs
 PRODUCT_PACKAGES += \
@@ -24,12 +25,12 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service.rockchip \
     android.hardware.health@2.0-service.rockchip \
     android.hardware.memtrack@1.0-service.rockchip \
-    android.hardware.audio.effect@4.0-service.rockchip \
-    android.hardware.audio@4.0-service.rockchip
+    android.hardware.audio.effect@5.0-service.rockchip \
+    android.hardware.audio@5.0-service.rockchip
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio.effect@4.0-impl
+    android.hardware.audio.effect@5.0-impl
 
 PRODUCT_COPY_FILES += \
     device/rockchip/common/hal/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
@@ -39,3 +40,7 @@ PRODUCT_COPY_FILES += \
 # Backlight control HAL
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.rockpro64
+
+# Touchcreen config file
+PRODUCT_COPY_FILES += \
+    device/rockchip/rockpro64/Vendor_0416_Product_038f.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Vendor_0416_Product_038f.idc

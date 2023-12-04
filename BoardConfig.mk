@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The Android Open-Source Project
+# Copyright (C) 2023 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,11 +14,9 @@
 # limitations under the License.
 #
 
-include device/rockchip/common/boardconfig-common.mk
+include device/rockchip/common/BoardConfig-common.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := rockpro64
-
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
 # VBMeta image
 BOARD_AVB_ENABLE := true
@@ -45,19 +43,25 @@ BOARD_USES_METADATA_PARTITION := true
 # BT HAL external SELinux pilicies
 BOARD_VENDOR_SEPOLICY_DIRS += system/bt/vendor_libs/linux/sepolicy
 
+#
+PRODUCT_FULL_TREBLE_OVERRIDE := false
+PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
+BOARD_VNDK_VERSION := current
+
 # Vendor Interface Manifest
-DEVICE_MANIFEST_FILE := device/rockchip/$(TARGET_DEVICE)/manifest.xml
-DEVICE_MATRIX_FILE := device/rockchip/$(TARGET_DEVICE)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := device/rockchip/rockpro64/manifest.xml
+DEVICE_MATRIX_FILE := device/rockchip/rockpro64/compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/rockchip/rockpro64/device_framework_matrix_product.xml
 
 # Kernel build
-BOARD_KERNEL_VERSION    := 5.4
+BOARD_KERNEL_VERSION    := 6.1
 BOARD_KERNEL_TOOLCHAIN  := prebuilts/gcc/linux-x86/aarch64/gcc-linaro-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 BOARD_KERNEL_SOURCE     := device/rockchip/kernel
 BOARD_KERNEL_OBJ_OUT    := out/target/product/$(TARGET_DEVICE)/obj/KERNEL
-BOARD_KERNEL_CONFIG     := android_r_rockpro64_defconfig
+BOARD_KERNEL_CONFIG     := android_u_rockpro64_defconfig
 BOARD_MKBOOTIMG_ARGS    := --header_version 2 \
-    --dtb $(BOARD_KERNEL_OBJ_OUT)/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtb \
-    --base 0x40000000 --dtb_offset 0x00000000 --kernel_offset 0x00080000 --ramdisk_offset 0x02080000
+    --dtb $(BOARD_KERNEL_OBJ_OUT)/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-v2.dtb \
+    --base 0x40000000 --dtb_offset 0x00008000 --kernel_offset 0x00200000 --ramdisk_offset 0x02200000
 
 BOARD_KERNEL_CMDLINE    := androidboot.hardware=rockpro64 androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE    += console=ttyS2,1500000n8 init=/init loop.max_part=7
