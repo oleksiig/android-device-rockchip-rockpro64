@@ -30,12 +30,13 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.example_recovery \
     android.hardware.health.storage-service.default
 
+# Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio.effect@5.0-impl \
     android.hardware.audio.effect@5.0-service.rockchip \
     android.hardware.audio@5.0-service.rockchip
 
-# Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio.effect@5.0-impl
 
 PRODUCT_COPY_FILES += \
     device/rockchip/common/hal/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
