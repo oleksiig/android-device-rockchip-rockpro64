@@ -38,19 +38,19 @@ using ::android::sp;
 using namespace android::hardware;
 
 struct Light : public ILight {
-	Light(void);
+    Light(void);
 
     // Methods from ::android::hardware::light::V2_0::ILight follow.
     Return<light::V2_0::Status> setLight(light::V2_0::Type type, const light::V2_0::LightState& state) override;
     Return<void> getSupportedTypes(getSupportedTypes_cb _hidl_cb) override;
 
     // Methods from ::android::hidl::base::V1_0::IBase follow.
-    
+
 private:
-	std::string mBrightnessPath;
-	std::string mMaxBrightnessPath;
-	uint8_t mMaxValue;
-	int mFd;
+    std::string mBrightnessPath;
+    std::string mMaxBrightnessPath;
+    uint8_t     mMaxValue;
+    int         mFd;
 };
 
 }  // namespace implementation
