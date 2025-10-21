@@ -23,7 +23,6 @@ $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-hea
 
 # Default HALs
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-service.rockchip \
     android.hardware.power@1.2-service.rockchip \
     android.hardware.health@2.0-service.rockchip \
     android.hardware.memtrack@1.0-service.rockchip \
