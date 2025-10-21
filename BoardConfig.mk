@@ -49,9 +49,7 @@ PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 BOARD_VNDK_VERSION := current
 
 # Vendor Interface Manifest
-DEVICE_MANIFEST_FILE := device/rockchip/rockpro64/manifest.xml
-DEVICE_MATRIX_FILE := device/rockchip/rockpro64/compatibility_matrix.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/rockchip/rockpro64/device_framework_matrix_product.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/rockchip/rockpro64/framework_compatibility_matrix.xml
 
 # Kernel build
 BOARD_KERNEL_VERSION    := 6.1
